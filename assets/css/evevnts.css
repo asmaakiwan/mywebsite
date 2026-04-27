@@ -1,0 +1,305 @@
+/* evevnts.css - Blue / Green / Purple Theme for Events Page */
+
+:root {
+  --primary-blue: #2b50aa;
+  --primary-green: #2ecc71;
+  --primary-purple: #9b59b6;
+  --gradient-bg: linear-gradient(135deg, #1e3c72 0%, #2ecc71 50%, #9b59b6 100%);
+  --gradient-hover: linear-gradient(135deg, #2b50aa 0%, #27ae60 50%, #8e44ad 100%);
+  --dark-bg: #0f172a;
+  --card-bg: #1e293b;
+  --text-light: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-radius: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Tahoma', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: var(--text-light);
+  direction: rtl;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-bg);
+  border-radius: 10px;
+}
+
+/* Page Title */
+h2.text-center {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: var(--gradient-bg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+h2.text-center::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--gradient-bg);
+  border-radius: 3px;
+}
+
+/* Search Box */
+.search-box {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(46, 204, 113, 0.2);
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: var(--text-light);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background: #1e293b;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+  color: white;
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-search {
+  background: var(--gradient-bg);
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+  background: var(--gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
+}
+
+/* Event Cards */
+.event-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(46, 204, 113, 0.15);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-green);
+  box-shadow: 0 20px 35px -10px rgba(46, 204, 113, 0.3);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #6c5ce7, #00cec9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.card-body p strong {
+  color: var(--primary-green);
+}
+
+.card-body p {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.btn-light {
+  background: rgba(46, 204, 113, 0.15);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: var(--primary-green);
+  border-radius: 50px;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: fit-content;
+}
+
+.btn-light:hover {
+  background: var(--gradient-bg);
+  border-color: transparent;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* No Results Message */
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(30, 41, 59, 0.5);
+  border-radius: var(--border-radius);
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.no-results i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-item {
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+.event-item:nth-child(1) { animation-delay: 0.05s; }
+.event-item:nth-child(2) { animation-delay: 0.1s; }
+.event-item:nth-child(3) { animation-delay: 0.15s; }
+.event-item:nth-child(4) { animation-delay: 0.2s; }
+.event-item:nth-child(5) { animation-delay: 0.25s; }
+.event-item:nth-child(6) { animation-delay: 0.3s; }
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+  border-top: 2px solid transparent;
+  border-image: var(--gradient-bg);
+  border-image-slice: 1;
+}
+
+footer h5 {
+  background: linear-gradient(135deg, #6c5ce7, #00cec9, #2ecc71);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--gradient-bg);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h2.text-center {
+    font-size: 1.75rem;
+  }
+  
+  .search-box {
+    margin: 1rem;
+    padding: 1rem !important;
+  }
+  
+  .card-img-top {
+    height: 180px;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .card-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-md-2.d-grid {
+    margin-top: 0.5rem;
+  }
+  
+  .btn-search {
+    width: 100%;
+  }
+}

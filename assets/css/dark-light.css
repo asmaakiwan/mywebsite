@@ -1,0 +1,154 @@
+/* إضافة نظام الألوان */
+:root {
+  /* ألوان الوضع الفاتح (Light Mode) */
+  --light-bg: #ffffff;
+  --light-card: #f8f9fa;
+  --light-text: #2c3e50;
+  --light-text-muted: #6c757d;
+  --light-border: #e9ecef;
+  
+  /* ألوان الوضع الداكن (Dark Mode) */
+  --dark-bg: #0f172a;
+  --dark-card: #1e293b;
+  --dark-text: #f1f5f9;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #334155;
+  
+  /* الألوان الأساسية (ما بتتغير) */
+  --primary-blue: #2b50aa;
+  --primary-green: #2ecc71;
+  --primary-purple: #9b59b6;
+  --gradient-bg: linear-gradient(135deg, #2b50aa, #2ecc71);
+  --gradient-hover: linear-gradient(135deg, #1e3c72, #27ae60);
+  --border-radius: 1rem;
+}
+
+/* الوضع الفاتح (الافتراضي) */
+body {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: all 0.3s ease;
+}
+
+/* الوضع الداكن */
+body.dark-mode {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1a2e 100%);
+  color: var(--dark-text);
+}
+
+body.dark-mode .card,
+body.dark-mode .box,
+body.dark-mode .team-card {
+  background: var(--dark-card);
+  border-color: var(--dark-border);
+}
+
+body.dark-mode .event-card,
+body.dark-mode .related-card {
+  background: var(--dark-card);
+}
+
+body.dark-mode .form-control {
+  background: var(--dark-card);
+  color: var(--dark-text);
+  border-color: var(--dark-border);
+}
+
+body.dark-mode .card p,
+body.dark-mode .box p {
+  color: var(--dark-text-muted);
+}
+
+body.dark-mode .desc,
+body.dark-mode .card-text {
+  color: var(--dark-text-muted);
+}
+
+body.dark-mode .accordion-item {
+  background: var(--dark-card);
+  border-color: var(--dark-border);
+}
+
+body.dark-mode .accordion-button {
+  background: var(--dark-card);
+  color: var(--dark-text);
+}
+
+body.dark-mode .accordion-button:not(.collapsed) {
+  background: rgba(46, 204, 113, 0.1);
+  color: var(--primary-green);
+}
+
+body.dark-mode .accordion-body {
+  background: #0f172a;
+}
+
+body.dark-mode .search-box {
+  background: rgba(30, 41, 59, 0.8);
+}
+
+body.dark-mode .cta {
+  background: #1e293b;
+}
+
+/* زر التبديل */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-bg);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 9999;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+/* إضافات للوضع الداكن */
+body.dark-mode .navbar {
+  background: #0f172a !important;
+}
+
+body.dark-mode footer {
+  background: #0f172a !important;
+}
+
+body.dark-mode .btn-light {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+body.dark-mode .btn-light:hover {
+  background: var(--gradient-bg);
+  color: white;
+}
+
+body.dark-mode .faq-section h5 {
+  color: #9b59b6;
+}
+
+body.dark-mode .card h4,
+body.dark-mode .card h5 {
+  background: linear-gradient(135deg, #6c5ce7, #00cec9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
